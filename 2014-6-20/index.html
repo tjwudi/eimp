@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .frame, .door {
+      width: 50px;
+      height: 80px;
+    }
+
+    .frame {
+      border: 9px solid #000000;
+      transform-origin: 0 0;
+      animation: rotate-frame 1s linear infinite alternate;
+      perspective: 20em;
+      transform-style: preserve-3d;
+    }
+
+    .door {
+      background-color: red;
+    }
+
+    .door {
+      transform-origin: 0 0;
+      animation: open-door 1s linear infinite alternate;
+    }
+
+    @keyframes open-door {
+      from {
+        transform: rotateY(45deg);
+      }
+      
+      to {
+        transform: rotateY(-45deg);
+      }
+    }
+
+    @keyframes rotate-frame {
+      from {
+        transform: rotateY(40deg);
+      }
+      to {
+        transform: rotateY(-40deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="door"></div>
+  </div>
+</body>
+</html>
