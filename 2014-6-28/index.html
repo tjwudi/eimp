@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+  <title>Touch Event!</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid;  
+    }
+  </style>
+</head>
+<body>
+<div class="box"></div>
+
+
+<script async="async">
+window.addEventListener('DOMContentLoaded', function() {
+  var box = document.querySelector('.box'),
+   startX, startY;
+  box.addEventListener('touchstart', function(event) {
+    var touchObj = event.changedTouches[0];
+    console.log('Touch started at client cordinate: (' +
+      touchObj.clientX + ', ' +
+      touchObj.clientY + ')');
+    startX = touchObj.clientX;
+    startY = touchObj.clientY;
+  });
+  box.addEventListener('touchmove', function(event) {
+    var touchObj = event.changedTouches[0],
+      deltaX = touchObj.clientX - startX,
+      deltaY = touchObj.clientY - startY;
+    console.log('translateX(' + deltaX + 'px) translateY(' + deltaY + 'px)');
+    box.style.webkitTransform = 'translateX(' + deltaX + 'px) translateY(' + deltaY + 'px)';
+  });
+});
+</script>
+</body>
+</html>
