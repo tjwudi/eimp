@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conquering Events</title>
+</head>
+<body>
+<div class="wrapper">
+  
+</div>
+<img src="http://www.baidu.com/img/bdlogo.gif" alt="" id="baidu">
+
+<script>
+var wrapper = document.querySelector('.wrapper');
+window.addEventListener('DOMContentLoaded', function() {
+  var baidu = document.getElementById('baidu');
+  baidu.src = 'http://static.wenku.bdimg.com/static/widget/common/header/search_box/images/logo-wk-137-46_3164f22b.png';
+  console.dir(baidu.complete);
+});
+</script>
+</body>
+</html>
